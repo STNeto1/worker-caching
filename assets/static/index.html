@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hono</title>
+  </head>
+
+  <body>
+    <h1>Hi 🤠</h1>
+
+    <div id="no-cache"></div>
+    <div id="cached"></div>
+  </body>
+
+  <script>
+    function fetchAndReplace(id) {
+      fetch(`/${id}`)
+        .then((res) => res.text())
+        .then((text) => {
+          document.getElementById(id).innerHTML = `${id} - ${text}`;
+        });
+    }
+
+    fetchAndReplace("no-cache");
+    fetchAndReplace("cached");
+  </script>
+</html>
